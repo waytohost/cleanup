@@ -43,6 +43,16 @@ find /var/log/apache2/domlogs -type f -name "*_log" -exec truncate -s 0 {} \;
 echo "Removing compressed Apache logs..."
 find /var/log/apache2 -type f -name "*.gz" -print -delete > /dev/null
 
+
+echo ""
+echo "===== imunify360 ====="
+
+echo "Removing compressed imunify360 logs..."
+find /var/log/imunify360 -type f -name "*.gz" -print -delete > /dev/null
+
+echo "Clearing imunify360..."
+find /var/log/imunify360 -type f -name "*.log" -exec truncate -s 0 {} \;
+
 echo ""
 echo "===== PHP Sessions ====="
 
