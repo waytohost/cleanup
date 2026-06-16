@@ -51,10 +51,12 @@ echo "===== imunify360 ====="
 
 echo "Removing compressed imunify360 logs..."
 find /var/log/imunify360 -type f -name "*.gz" -print -delete > /dev/null
+find /var/log/imunify360-webshield -type f -name "*.gz" -print -delete > /dev/null
 
 echo "Clearing imunify360..."
 find /var/log/imunify360 -type f -name "*.log" -exec truncate -s 0 {} \;
 find /var/log/imunify360 -type f -name "*.log*" -exec truncate -s 0 {} \;
+find /var/log/imunify360-webshield -type f -name "*.log" -exec truncate -s 0 {} \;
 
 echo ""
 echo "===== PHP Sessions ====="
