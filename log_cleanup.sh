@@ -53,3 +53,8 @@ echo ""
 echo "=========================================="
 echo " Log Cleanup Completed: $(date)"
 echo "=========================================="
+
+
+echo ""
+echo "===== Disk Usage After Cleanup ====="
+df -Th
