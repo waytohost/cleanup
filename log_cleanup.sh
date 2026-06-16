@@ -52,6 +52,7 @@ find /var/log/imunify360 -type f -name "*.gz" -print -delete > /dev/null
 
 echo "Clearing imunify360..."
 find /var/log/imunify360 -type f -name "*.log" -exec truncate -s 0 {} \;
+find /var/log/imunify360 -type f -name "*.log*" -exec truncate -s 0 {} \;
 
 echo ""
 echo "===== PHP Sessions ====="
