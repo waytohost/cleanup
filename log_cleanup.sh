@@ -38,7 +38,9 @@ echo ""
 echo "===== Apache Logs ====="
 
 echo "Clearing Apache domlogs..."
-find /var/log/apache2/domlogs -type f -name "*_log" -exec truncate -s 0 {} \;
+#find /var/log/apache2/domlogs -type f -name "*_log" -exec truncate -s 0 {} \;
+find /var/log/apache2 -type f -name "*_log" -exec truncate -s 0 {} \;
+find /var/log/apache2 -type f -name "*.log" -exec truncate -s 0 {} \;
 
 echo "Removing compressed Apache logs..."
 find /var/log/apache2 -type f -name "*.gz" -print -delete > /dev/null
