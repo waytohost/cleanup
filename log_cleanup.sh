@@ -32,6 +32,9 @@ for HOMEDIR in /home*; do
 
     echo "Clearing Laravel logs..."
     find "$HOMEDIR"/*/public_html -type f -name "laravel.log" -exec truncate -s 0 {} \;
+
+    echo "Clearing Debug log..."
+    find "$HOMEDIR"/*/public_html -type f -name "debug.log" -exec truncate -s 0 {} \;
 done
 
 echo ""
