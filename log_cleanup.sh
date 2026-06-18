@@ -24,6 +24,10 @@ for HOMEDIR in /home*; do
     echo "Removing compressed log files (*.gz)..."
     find "$HOMEDIR"/*/logs -type f -name "*.gz" -print -delete > /dev/null
 
+
+    echo "Removing sess files (sess_*)..."
+    find "$HOMEDIR"/*/tmp -type f -name "sess_*" -print -delete > /dev/null
+
     echo "Clearing Razor agent logs..."
     find "$HOMEDIR"/*/.razor -type f -name "razor-agent.log" -exec truncate -s 0 {} \;
 
