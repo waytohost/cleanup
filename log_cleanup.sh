@@ -61,7 +61,7 @@ find /var/log/imunify360-webshield -type f -name "*.log" -exec truncate -s 0 {} 
 echo ""
 echo "===== bitninja ====="
 
-echo "Removing compressed imunify360 logs..."
+echo "Removing compressed bitninja logs..."
 find /var/log/bitninja -type f -name "*.gz" -print -delete > /dev/null
 
 echo "Clearing bitninja..."
