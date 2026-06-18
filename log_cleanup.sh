@@ -63,10 +63,12 @@ echo "===== bitninja ====="
 
 echo "Removing compressed bitninja logs..."
 find /var/log/bitninja -type f -name "*.gz" -print -delete > /dev/null
+find /var/log/bitninja-dispatcher -type f -name "*.gz" -print -delete > /dev/null
 
 echo "Clearing bitninja..."
 find /var/log/bitninja -type f -name "*.log" -exec truncate -s 0 {} \;
 find /var/log/bitninja -type f -name "*.log*" -exec truncate -s 0 {} \;
+find /var/log/bitninja-dispatcher -type f -name "*.log" -exec truncate -s 0 {} \;
 
 
 echo ""
