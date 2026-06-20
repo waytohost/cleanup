@@ -77,6 +77,13 @@ find /var/log/bitninja -type f -name "*.log" -exec truncate -s 0 {} \;
 find /var/log/bitninja -type f -name "*.log*" -exec truncate -s 0 {} \;
 find /var/log/bitninja-dispatcher -type f -name "*.log" -exec truncate -s 0 {} \;
 
+echo ""
+echo "===== Jetbackup ====="
+
+echo "Clearing jetbackup..."
+find /usr/local/jetapps/var/log -type f -name "*.log" -exec truncate -s 0 {} \;
+find /usr/local/jetapps/var/log -type f -name "*.log*" -exec truncate -s 0 {} \;
+find /usr/local/jetapps/var/log -type f -name "*.gz" -print -delete > /dev/null
 
 echo ""
 echo "===== PHP Sessions ====="
