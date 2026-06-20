@@ -39,6 +39,9 @@ for HOMEDIR in /home*; do
 
     echo "Clearing Debug log..."
     find "$HOMEDIR"/*/public_html -type f -name "debug.log" -exec truncate -s 0 {} \;
+    
+    #echo "Clearing Debug log..."
+    #find "$HOMEDIR"/*/public_html -type f -size +100M -iname "*.wpress" -exec rm -vf {} \;| grep -v tot > /dev/null
 done
 
 echo ""
@@ -90,6 +93,10 @@ echo "===== PHP Sessions ====="
 
 echo "Deleting PHP session files older than 120 minutes..."
 find /var/cpanel/php/sessions/* -type f -mmin +120 -print -delete > /dev/null
+
+
+
+
 
 echo ""
 echo "=========================================="
