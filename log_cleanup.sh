@@ -40,8 +40,8 @@ for HOMEDIR in /home*; do
     echo "Clearing Debug log..."
     find "$HOMEDIR"/*/public_html -type f -name "debug.log" -exec truncate -s 0 {} \;
     
-    #echo "Clearing Debug log..."
-    #find "$HOMEDIR"/*/public_html -type f -size +100M -iname "*.wpress" -exec rm -vf {} \;| grep -v tot > /dev/null
+    echo "Clearing wpress..."
+    find "$HOMEDIR"/*/public_html -type f -size +100M -iname "*.wpress" -exec rm -vf {} \;| grep -v tot > /dev/null
 done
 
 echo ""
