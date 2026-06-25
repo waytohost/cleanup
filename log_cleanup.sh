@@ -42,6 +42,10 @@ for HOMEDIR in /home*; do
     
     echo "Clearing wpress..."
     find "$HOMEDIR"/*/public_html -type f -size +100M -iname "*.wpress" -exec rm -vf {} \;| grep -v tot > /dev/null
+    
+    echo "softaculous_backups..."
+    find "$HOMEDIR"/*/softaculous_backups -type f -name "*.gz" -print -delete > /dev/null
+    
 done
 
 echo ""
