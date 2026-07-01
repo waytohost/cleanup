@@ -16,10 +16,10 @@ for HOMEDIR in /home*; do
     echo "===== Processing $HOMEDIR ====="
 
     echo "Clearing public_html error_log files..."
-    find "$HOMEDIR"/*/public_html -type f -name "error_log" -exec truncate -s 0 {} \;
+    find "$HOMEDIR"/*/public_html -type f -name "error_log" -exec truncate -s 0 {} \; > /dev/null
 
     echo "Clearing account error.log files..."
-    find "$HOMEDIR"/*/logs -type f -name "*error.log" -exec truncate -s 0 {} \;
+    find "$HOMEDIR"/*/logs -type f -name "*error.log" -exec truncate -s 0 {} \; > /dev/null
 
     echo "Removing compressed log files (*.gz)..."
     find "$HOMEDIR"/*/logs -type f -name "*.gz" -print -delete > /dev/null
@@ -29,16 +29,16 @@ for HOMEDIR in /home*; do
     find "$HOMEDIR"/*/tmp -type f -name "sess_*" -print -delete > /dev/null
 
     echo "Clearing Razor agent logs..."
-    find "$HOMEDIR"/*/.razor -type f -name "razor-agent.log" -exec truncate -s 0 {} \;
+    find "$HOMEDIR"/*/.razor -type f -name "razor-agent.log" -exec truncate -s 0 {} \; > /dev/null
 
     echo "Clearing Analog cache files..."
-    find "$HOMEDIR"/*/tmp/analog -type f -name "cache" -exec truncate -s 0 {} \;
+    find "$HOMEDIR"/*/tmp/analog -type f -name "cache" -exec truncate -s 0 {} \; > /dev/null
 
     echo "Clearing Laravel logs..."
-    find "$HOMEDIR"/*/public_html -type f -name "laravel.log" -exec truncate -s 0 {} \;
+    find "$HOMEDIR"/*/public_html -type f -name "laravel.log" -exec truncate -s 0 {} \; > /dev/null
 
     echo "Clearing Debug log..."
-    find "$HOMEDIR"/*/public_html -type f -name "debug.log" -exec truncate -s 0 {} \;
+    find "$HOMEDIR"/*/public_html -type f -name "debug.log" -exec truncate -s 0 {} \; > /dev/null
     
     echo "Clearing wpress..."
     find "$HOMEDIR"/*/public_html -type f -size +100M -iname "*.wpress" -exec rm -vf {} \;| grep -v tot > /dev/null
@@ -52,9 +52,9 @@ echo ""
 echo "===== Apache Logs ====="
 
 echo "Clearing Apache domlogs..."
-#find /var/log/apache2/domlogs -type f -name "*_log" -exec truncate -s 0 {} \;
-find /var/log/apache2 -type f -name "*_log" -exec truncate -s 0 {} \;
-find /var/log/apache2 -type f -name "*.log" -exec truncate -s 0 {} \;
+#find /var/log/apache2/domlogs -type f -name "*_log" -exec truncate -s 0 {} \; > /dev/null
+find /var/log/apache2 -type f -name "*_log" -exec truncate -s 0 {} \; > /dev/null
+find /var/log/apache2 -type f -name "*.log" -exec truncate -s 0 {} \; > /dev/null
 
 echo "Removing compressed Apache logs..."
 find /var/log/apache2 -type f -name "*.gz" -print -delete > /dev/null
@@ -68,9 +68,9 @@ find /var/log/imunify360 -type f -name "*.gz" -print -delete > /dev/null
 find /var/log/imunify360-webshield -type f -name "*.gz" -print -delete > /dev/null
 
 echo "Clearing imunify360..."
-find /var/log/imunify360 -type f -name "*.log" -exec truncate -s 0 {} \;
-find /var/log/imunify360 -type f -name "*.log*" -exec truncate -s 0 {} \;
-find /var/log/imunify360-webshield -type f -name "*.log" -exec truncate -s 0 {} \;
+find /var/log/imunify360 -type f -name "*.log" -exec truncate -s 0 {} \; > /dev/null
+find /var/log/imunify360 -type f -name "*.log*" -exec truncate -s 0 {} \; > /dev/null
+find /var/log/imunify360-webshield -type f -name "*.log" -exec truncate -s 0 {} \; > /dev/null
 
 echo ""
 echo "===== bitninja ====="
@@ -80,16 +80,16 @@ find /var/log/bitninja -type f -name "*.gz" -print -delete > /dev/null
 find /var/log/bitninja-dispatcher -type f -name "*.gz" -print -delete > /dev/null
 
 echo "Clearing bitninja..."
-find /var/log/bitninja -type f -name "*.log" -exec truncate -s 0 {} \;
-find /var/log/bitninja -type f -name "*.log*" -exec truncate -s 0 {} \;
-find /var/log/bitninja-dispatcher -type f -name "*.log" -exec truncate -s 0 {} \;
+find /var/log/bitninja -type f -name "*.log" -exec truncate -s 0 {} \; > /dev/null
+find /var/log/bitninja -type f -name "*.log*" -exec truncate -s 0 {} \; > /dev/null
+find /var/log/bitninja-dispatcher -type f -name "*.log" -exec truncate -s 0 {} \; > /dev/null
 
 echo ""
 echo "===== Jetbackup ====="
 
 echo "Clearing jetbackup Logs..."
-find /usr/local/jetapps/var/log -type f -name "*.log" -exec truncate -s 0 {} \;
-find /usr/local/jetapps/var/log -type f -name "*.log*" -exec truncate -s 0 {} \;
+find /usr/local/jetapps/var/log -type f -name "*.log" -exec truncate -s 0 {} \; > /dev/null
+find /usr/local/jetapps/var/log -type f -name "*.log*" -exec truncate -s 0 {} \; > /dev/null
 find /usr/local/jetapps/var/log -type f -name "*.gz" -print -delete > /dev/null
 
 echo ""
