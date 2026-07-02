@@ -46,6 +46,7 @@ for HOMEDIR in /home*; do
     echo "softaculous_backups..."
     find "$HOMEDIR"/*/softaculous_backups -type f -name "*.gz" -print -delete > /dev/null
 
+    echo "Updraft_backups..."
     find /home -type f -iname "backup_*.zip" -exec rm -vf {} \; > /dev/null
     find /home -type f -iname "backup_*-db.gz" -exec rm -vf {} \; > /dev/null
     find /home -type f -iname "backup_*.zip.list.tmp" -exec rm -vf {} \; > /dev/null
